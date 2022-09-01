@@ -1,4 +1,4 @@
-import { configureStore } from 'redux';
+import { createStore } from 'redux';
 
 // store
 
@@ -15,7 +15,7 @@ const counterReducer = (state = { counter: 0 }, action) => {
     return state;
 };
 
-const store = configureStore(counterReducer);
+const store = createStore(counterReducer);
 
 // connect react-app to redux store
 export default store;
