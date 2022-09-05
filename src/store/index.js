@@ -1,4 +1,4 @@
-import { createSlice, createStore } from '@reduxjs/toolkit';
+import { createSlice, configureStore } from '@reduxjs/toolkit';
 
 const initialState = { counter: 0, showCounter: true };
 
@@ -27,7 +27,12 @@ const counterSlice = createSlice({
     },
 });
 
-const store = createStore(counterSlice.reducer);
+// action identifiers are automatically created - keys match the method names in reducers
 
+const store = configureStore({
+    reducer: counterSlice.reducer,
+});
+
+export const counterActions = counterSlice.actions;
 // connect react-app to redux store
 export default store;
