@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const Header = () => {
     const dispatch = useDispatch;
-    const isAuthenticated = useSelector((state) => state.isAuthenticated);
+    const isAuth = useSelector((state) => state.auth.isAuthenticated);
 
     const logoutHandler = () => {
         dispatch(authActions.logout());
@@ -12,8 +12,8 @@ const Header = () => {
     return (
         <header className={classes.header}>
             <h1>Redux Auth</h1>
-            <nav>
-                {isAuthenticated && (
+            {isAuth && (
+                <nav>
                     <ul>
                         <li>
                             <a href="/">My Products</a>
@@ -25,8 +25,8 @@ const Header = () => {
                             <button onClick={logoutHandler}>Logout</button>
                         </li>
                     </ul>
-                )}
-            </nav>
+                </nav>
+            )}
         </header>
     );
 };
