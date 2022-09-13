@@ -27,4 +27,7 @@ const counterSlice = createSlice({
     },
 });
 
-export default counterSlice;
+// action identifiers are automatically created - keys match the method names in reducers
+export const counterActions = counterSlice.actions;
+
+export default counterSlice.reducer;
